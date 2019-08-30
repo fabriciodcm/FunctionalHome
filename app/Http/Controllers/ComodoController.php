@@ -23,4 +23,23 @@ class ComodoController extends Controller
         $comodos =  Comodo::all();
         return view('comodo/listar', compact( 'comodos'));
     }
+    
+    public function getComodo($id){
+        $comodo = Comodo::find($id);
+        return view('comodo/cadastro', compact( 'comodo'));
+    }
+
+    public function insert(Request $request){
+        
+        if(isset($request->idComodo)){
+            //update
+            $comodo = Comodo::find($request->input('idComodo'));
+        }else{
+            //insert
+            $comodo = new Comodo();
+        }
+        $comodo->nomeComodo = $request->nomeComodo;
+        $comodo->save();
+        return redirect('/comodo/listar');
+    }
 }

@@ -29,6 +29,8 @@ Route::post('user/setAdmin','UserController@setAdmin');
 
 Route::get('comodo/listar', 'ComodoController@getComodos');
 Route::get('comodo/cadastro', 'ComodoController@cadComodo');
+Route::get('comodo/edit/{id}', 'ComodoController@getComodo');
+Route::post('comodo/insert', 'ComodoController@insert');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
