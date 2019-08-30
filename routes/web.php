@@ -27,5 +27,8 @@ Route::get('user/listar', 'UserController@getUsers');
 Route::post('user/setAceite','UserController@setAceite');
 Route::post('user/setAdmin','UserController@setAdmin');
 
+Route::get('comodo/listar', 'ComodoController@getComodos');
+Route::get('comodo/cadastro', 'ComodoController@cadComodo');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
