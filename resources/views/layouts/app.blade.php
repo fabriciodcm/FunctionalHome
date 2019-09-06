@@ -51,6 +51,15 @@
                         @else
                             @if(Auth::user()->solicitacaoAceita)
                                 <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eletrodomésticos <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ url('eletrodomestico/listar') }}">Listar</a></li>
+                                        @if(Auth::user()->administrador)
+                                            <li><a class="dropdown-item" href="{{ url('eletrodomestico/cadastro') }}">Cadastrar</a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comodos <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{ url('comodo/listar') }}">Listar</a></li>

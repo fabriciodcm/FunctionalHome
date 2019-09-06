@@ -19,7 +19,6 @@
         </button></th>
         <td><a href="/comodo/edit/{{ $com->idComodo }}">{{ $com->idComodo }}</a></td>
         <td><a href="/comodo/edit/{{ $com->idComodo }}">{{ $com->nomeComodo }}</a></td>
-        </td>
     </tr>
     @endforeach
   </tbody>

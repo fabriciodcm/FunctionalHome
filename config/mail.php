@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'sendmail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'username' => env('functionfunctionalhome.ifsp@gmail.comalhome'),
+    'username' => env('functionalhome.ifsp@gmail.com'),
 
     'password' => env('functional'),
 

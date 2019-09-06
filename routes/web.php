@@ -32,5 +32,10 @@ Route::get('comodo/cadastro', 'ComodoController@cadComodo');
 Route::get('comodo/edit/{id}', 'ComodoController@getComodo');
 Route::post('comodo/insert', 'ComodoController@insert');
 
+Route::get('eletrodomestico/listar', 'EletrodomesticoController@getEletrodomesticos');
+Route::get('eletrodomestico/cadastro', 'EletrodomesticoController@cadEletrodomestico');
+Route::get('eletrodomestico/edit/{id}', 'EletrodomesticoController@getEletrodomestico');
+Route::post('eletrodomestico/insert', 'EletrodomesticoController@insert');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
