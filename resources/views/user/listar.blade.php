@@ -66,7 +66,7 @@ $(document).ready(function(){
 @else
 <div class="container">
   <div class="row justify-content-center">
-    <p>Você não possui permissão.</p>
+    <p>Você não possui permissão para acessar esta página.</p>
   </div>
 </div>
 @endif

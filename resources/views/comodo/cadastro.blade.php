@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @if(Auth::User()->administrador == 1)
     <form class="form" method="POST" action="{{url('comodo/insert')}}">
         <div class="form-group row">
             <div class="col-sm-1 col-form-label" id="lblNomeComodo">Comodo :</div>
@@ -13,5 +14,10 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <input type="submit" class="btn btn-primary" value="Cadastrar"/>
     </form>
+    @else
+        <div class="row justify-content-center">
+            <p>Você não possui permissão para acessar esta página.</p>
+        </div>
+    @endif
 </div>
 @endsection

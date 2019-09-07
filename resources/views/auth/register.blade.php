@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(Auth::User()->administrador == 1)
             <div class="card">
                 <div class="card-header">{{ __('Registrar') }}</div>
 
@@ -99,6 +100,11 @@
                     </form>
                 </div>
             </div>
+            @else
+                <div class="row justify-content-center">
+                    <p>Você não possui permissão para acessar esta página.</p>
+                </div>
+            @endif
         </div>
     </div>
 </div>

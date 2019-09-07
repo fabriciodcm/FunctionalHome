@@ -71,10 +71,6 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrar</a>
-                        @endif
                     @endauth
                 </div>
             @endif
@@ -83,8 +79,6 @@
                 <div class="title m-b-md">
                     Bem Vindo ao Functional Home lar automatizado.
                 </div>
-
-                
             </div>
         </div>
     </body>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -37,7 +40,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');//trocado de guest para auth para nao redirecionar apos o register
     }
 
     /**
@@ -73,5 +76,23 @@ class RegisterController extends Controller
             'cpf' => $data['cpf'],
             'telefone' => $data['telefone']
         ]);
+    }
+
+    protected function redirectTo()
+    {
+        return '/user/listar';
+    }
+
+    public function register(Request $request)
+    {
+        //Como desabilitar login automatico e redirecionamento após registrar usuário
+        //https://laraveldaily.com/9-things-you-can-customize-in-laravel-registration/
+        //https://stackoverflow.com/questions/43283708/enable-register-page-only-after-i-logged-in-laravel-5-4
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
 }

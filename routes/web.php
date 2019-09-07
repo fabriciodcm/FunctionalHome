@@ -23,7 +23,7 @@ Route::get('user/login', 'UserController@login');
 
 Auth::routes();
 
-Route::get('user/listar', 'UserController@getUsers');
+Route::get('user/listar', 'UserController@getUsers')->name('user_listar');
 Route::post('user/setAceite','UserController@setAceite');
 Route::post('user/setAdmin','UserController@setAdmin');
 

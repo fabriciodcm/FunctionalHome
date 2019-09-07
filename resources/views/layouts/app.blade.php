@@ -43,11 +43,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
-                                </li>
-                            @endif
                         @else
                             @if(Auth::user()->solicitacaoAceita)
                                 <li class="nav-item dropdown">
@@ -74,6 +69,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuários <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{ url('user/listar') }}">Listar</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('register')}}">Cadastrar</a></li>
                                     </ul>
                                 </li>
                             @endif
