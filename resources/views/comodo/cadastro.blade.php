@@ -12,7 +12,7 @@
         <input type="hidden" name="idComodo" id="idComodo" class="form-control" @if(isset($comodo->idComodo)) value="{{$comodo->idComodo}}" @endif>
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-        <input type="submit" class="btn btn-primary" value="Cadastrar"/>
+        <input type="submit" class="btn btn-primary" value="@if(isset($comodo->idComodo)) Editar  @else Cadastrar @endif"/>
     </form>
     @else
         <div class="row justify-content-center">

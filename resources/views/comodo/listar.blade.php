@@ -8,6 +8,8 @@
         <th>#</th>
         <th scope="col">Id</th>
         <th scope="col">Comodo</th>
+        <th></th>
+        <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,8 +19,10 @@
         <th scope="row"><button onClick="">
           +
         </button></th>
-        <td><a href="/comodo/edit/{{ $com->idComodo }}">{{ $com->idComodo }}</a></td>
-        <td><a href="/comodo/edit/{{ $com->idComodo }}">{{ $com->nomeComodo }}</a></td>
+        <td>{{ $com->idComodo }}</td>
+        <td>{{ $com->nomeComodo }}</td>
+        <td><a href="/comodo/edit/{{ $com->idComodo }}"><i class="material-icons">edit</i></a></td>
+        <td><a href="/comodo/delete/{{ $com->idComodo }}" style="color:red"><i class="material-icons danger">delete</i></a></td>
     </tr>
     @endforeach
   </tbody>

@@ -28,7 +28,7 @@
         </div>
         <input type="hidden" name="idEletrodomestico" id="idEletrodomestico" class="form-control" @if(isset($eletro->idEletrodomestico)) value="{{$eletro->idEletrodomestico}}" @endif>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-        <input type="submit" class="btn btn-primary" value="Cadastrar"/>
+        <input type="submit" class="btn btn-primary" value="@if(isset($eletro->idEletrodomestico)) Editar  @else Cadastrar @endif"/>
     </form>
     @else
         <div class="row justify-content-center">

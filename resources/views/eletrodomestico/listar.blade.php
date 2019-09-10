@@ -9,6 +9,8 @@
         <th scope="col">Id</th>
         <th scope="col">Eletrodoméstico</th>
         <th scope="col">Voltagem</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +20,11 @@
         <th scope="row"><button onClick="">
           +
         </button></th>
-        <td><a href="/eletrodomestico/edit/{{ $eletro->idEletrodomestico }}">{{ $eletro->idEletrodomestico }}</a></td>
-        <td><a href="/eletrodomestico/edit/{{ $eletro->idEletrodomestico }}">{{ $eletro->nomeEletrodomestico }}</a></td>
-        <td><a href="/eletrodomestico/edit/{{ $eletro->idEletrodomestico }}">{{ $eletro->voltagemEletrodomestico }}</a></td>
+        <td>{{ $eletro->idEletrodomestico }}</td>
+        <td>{{ $eletro->nomeEletrodomestico }}</td>
+        <td>{{ $eletro->voltagemEletrodomestico }}</td>
+        <td><a href="/eletrodomestico/edit/{{ $eletro->idEletrodomestico }}"><i class="material-icons">edit</i></a></td>
+        <td><a href="/eletrodomestico/delete/{{ $eletro->idEletrodomestico }}" style="color:red"><i class="material-icons danger">delete</i></a></td>
     </tr>
     @endforeach
   </tbody>
