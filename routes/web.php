@@ -31,11 +31,19 @@ Route::get('comodo/listar', 'ComodoController@getComodos');
 Route::get('comodo/cadastro', 'ComodoController@cadComodo');
 Route::get('comodo/edit/{id}', 'ComodoController@getComodo');
 Route::post('comodo/insert', 'ComodoController@insert');
+Route::get('comodo/delete/{id}', 'ComodoController@delete');
 
 Route::get('eletrodomestico/listar', 'EletrodomesticoController@getEletrodomesticos');
 Route::get('eletrodomestico/cadastro', 'EletrodomesticoController@cadEletrodomestico');
 Route::get('eletrodomestico/edit/{id}', 'EletrodomesticoController@getEletrodomestico');
 Route::post('eletrodomestico/insert', 'EletrodomesticoController@insert');
+Route::get('eletrodomestico/delete/{id}', 'EletrodomesticoController@delete');
+
+Route::get('lampada/listar', 'LampadaController@getLampadas');
+Route::get('lampada/cadastro', 'LampadaController@cadLampada');
+Route::get('lampada/edit/{id}', 'LampadaController@getLampada');
+Route::post('lampada/insert', 'LampadaController@insert');
+Route::get('lampada/delete/{id}', 'LampadaController@delete');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -51,4 +51,10 @@ class EletrodomesticoController extends Controller
         $eletro->save();
         return redirect('/eletrodomestico/listar');
     }
+
+    public function delete($id){
+        $eletro = Eletrodomestico::find($id);
+        $eletro->delete();
+        return redirect('/eletrodomestico/listar');
+    }
 }

@@ -55,14 +55,25 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comodos <span class="caret"></span></a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lampadas <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ url('comodo/listar') }}">Listar</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('lampada/listar') }}">Listar</a></li>
                                         @if(Auth::user()->administrador)
-                                            <li><a class="dropdown-item" href="{{ url('comodo/cadastro') }}">Cadastrar</a></li>
+                                            <li><a class="dropdown-item" href="{{ url('lampada/cadastro') }}">Cadastrar</a></li>
                                         @endif
                                     </ul>
                                 </li>
+                                {{--
+                                    <li class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comodos <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ url('comodo/listar') }}">Listar</a></li>
+                                            @if(Auth::user()->administrador)
+                                            <li><a class="dropdown-item" href="{{ url('comodo/cadastro') }}">Cadastrar</a></li>
+                                            @endif
+                                        </ul>
+                                    </li>
+                                --}}
                             @endif
                             @if(Auth::user()->administrador)
                                 <li class="nav-item dropdown">

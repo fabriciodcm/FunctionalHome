@@ -42,4 +42,10 @@ class ComodoController extends Controller
         $comodo->save();
         return redirect('/comodo/listar');
     }
+
+    public function delete($id){
+        $comodo = Comodo::find($id);
+        $comodo->delete();
+        return redirect('/comodo/listar');
+    }
 }

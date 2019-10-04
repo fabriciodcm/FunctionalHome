@@ -7,13 +7,13 @@
         <div class="form-group row">
             <div class="col-sm-2 col-form-label" id="lblNomeEletrodomestico">Eletrodoméstico :</div>
             <div class="col-sm-4">
-                <input type="text" name="nomeEletrodomestico" id="nomeEletrodomestico" class="form-control" @if(isset($eletro->nomeEletrodomestico)) value="{{$eletro->nomeEletrodomestico}}" @endif required>
+                <input type="text" name="nomeEletrodomestico" id="nomeEletrodomestico" maxlength="45" class="form-control" @if(isset($eletro->nomeEletrodomestico)) value="{{$eletro->nomeEletrodomestico}}" @endif required>
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-2 col-form-label" id="lblNomeEletrodomestico">Voltagem :</div>
             <div class="col-sm-4">
-                <input type="text" name="voltagemEletrodomestico" id="voltagemEletrodomestico" class="form-control" @if(isset($eletro->voltagemEletrodomestico)) value="{{$eletro->voltagemEletrodomestico}}" @endif required>
+                <input type="text" name="voltagemEletrodomestico" maxlength="10" id="voltagemEletrodomestico" class="form-control" @if(isset($eletro->voltagemEletrodomestico)) value="{{$eletro->voltagemEletrodomestico}}" @endif required>
             </div>
         </div>
         <div class="form-group row">
