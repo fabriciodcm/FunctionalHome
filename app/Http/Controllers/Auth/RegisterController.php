@@ -95,4 +95,25 @@ class RegisterController extends Controller
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
     }
+
+
+    public function getUser($id){
+        $user = User::find($id);
+        return view('auth/edit', compact( 'user'));
+    }
+
+    public function edit(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user = User::find($request->id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->api_token = User::geraToken();
+        $user->cpf = $request->cpf;
+        $user->telefone = $request->telefone;
+        $user->save();
+        return redirect($this->redirectPath());
+    }
 }

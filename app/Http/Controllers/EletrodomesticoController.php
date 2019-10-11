@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Comodo;
 use App\Eletrodomestico;
 
@@ -53,8 +54,10 @@ class EletrodomesticoController extends Controller
     }
 
     public function delete($id){
-        $eletro = Eletrodomestico::find($id);
-        $eletro->delete();
+        if(Auth::User()->administrador == 1){
+            $eletro = Eletrodomestico::find($id);
+            $eletro->delete();
+        }
         return redirect('/eletrodomestico/listar');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Comodo;
 
 class ComodoController extends Controller
@@ -44,8 +45,10 @@ class ComodoController extends Controller
     }
 
     public function delete($id){
-        $comodo = Comodo::find($id);
-        $comodo->delete();
+        if(Auth::User()->administrador == 1){
+            $comodo = Comodo::find($id);
+            $comodo->delete();
+        }
         return redirect('/comodo/listar');
     }
 }

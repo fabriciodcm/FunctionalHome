@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class UserController extends Controller
@@ -47,6 +48,14 @@ class UserController extends Controller
     public function getUsers(){
         $users =  User::all();
         return view('user/listar', compact( 'users'));
+    }
+
+    public function delete($id){
+        if(Auth::User()->administrador == 1){
+            $user = User::find($id);
+            $user->delete();
+        }
+        return redirect('user/listar');
     }
 
 }

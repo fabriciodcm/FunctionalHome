@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Comodo;
 use App\Lampada;
 
@@ -53,8 +54,10 @@ class LampadaController extends Controller
     }
 
     public function delete($id){
-        $lampada = Lampada::find($id);
-        $lampada->delete();
+        if(Auth::User()->administrador == 1){
+            $lampada = Lampada::find($id);
+            $lampada->delete();
+        }
         return redirect('/lampada/listar');
     }
 }

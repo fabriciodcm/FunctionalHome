@@ -13,6 +13,8 @@
         <th scope="col">Email</th>
         <th scope="col">Aceito</th>
         <th scope="col">Administrador</th>
+        <th></th>
+        <th></th>
     </tr>
   </thead>
   <tbody>
@@ -22,11 +24,13 @@
         <th scope="row"><button onClick="">
           +
         </button></th>
-        <td><a href="/user/edit/{{ $user->id }}">{{ $user->id }}</a></td>
-        <td><a href="/user/edit/{{ $user->id }}">{{ $user->name }}</a></td>
-        <td><a href="/user/edit/{{ $user->id }}">{{ $user->email }}</a></td>
+        <td>{{ $user->id }}</td>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->email }}</td>
         <td><input type="checkbox" class="check_sol" data-value="{{ $user->id }}" {{ $user->solicitacaoAceita  ? 'checked' : '' }} /></td>
         <td><input type="checkbox" class="check_adm" data-value="{{ $user->id }}" {{ $user->administrador  ? 'checked' : '' }} /></td>
+        <td><a href="/user/edit/{{ $user->id }}"><i class="material-icons">edit</i></a></td>
+        <td><a href="/user/delete/{{ $user->id }}" style="color:red"><i class="material-icons danger">delete</i></a></td>
         </td>
     </tr>
     @endforeach

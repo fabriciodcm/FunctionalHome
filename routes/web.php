@@ -26,6 +26,9 @@ Auth::routes();
 Route::get('user/listar', 'UserController@getUsers')->name('user_listar');
 Route::post('user/setAceite','UserController@setAceite');
 Route::post('user/setAdmin','UserController@setAdmin');
+Route::get('user/edit/{id}', 'Auth\RegisterController@getUser');
+Route::post('user/edit', 'Auth\RegisterController@edit');
+Route::get('user/delete/{id}', 'UserController@delete');
 
 Route::get('comodo/listar', 'ComodoController@getComodos');
 Route::get('comodo/cadastro', 'ComodoController@cadComodo');
