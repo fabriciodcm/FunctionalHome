@@ -60,6 +60,17 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function validatorEdit(array $data, $id)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $id ],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'cpf' => ['required', 'string', 'min:11', 'max:11'],
+            'telefone' => ['required', 'string', 'min:11', 'max:20'],
+        ]);
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -104,7 +115,8 @@ class RegisterController extends Controller
 
     public function edit(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->validatorEdit($request->all(),$request->id)->validate();
+
         $user = User::find($request->id);
 
         $user->name = $request->name;
