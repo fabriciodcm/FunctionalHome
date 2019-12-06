@@ -9,6 +9,6 @@ class Lampada extends Model
     protected $primaryKey = 'idLampada';
 
     protected $fillable = [
-        'nomeLampada, voltagemLampada' , 'idComodo'
+        'nomeLampada, voltagemLampada' , 'idComodo', 'idArduino'
     ];
 }

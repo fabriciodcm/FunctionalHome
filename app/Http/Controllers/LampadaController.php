@@ -49,6 +49,11 @@ class LampadaController extends Controller
         $lampada->idComodo = $request->input('idComodo');
         $lampada->nomeLampada = $request->input('nomeLampada');
         $lampada->voltagemLampada = $request->input('voltagemLampada');
+        
+        if(isset($request->idArduino)){
+            $lampada->idArduino = $request->input('idArduino');
+        }
+        
         $lampada->save();
         return redirect('/lampada/listar');
     }
