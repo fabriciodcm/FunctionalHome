@@ -41,12 +41,14 @@ Route::get('eletrodomestico/cadastro', 'EletrodomesticoController@cadEletrodomes
 Route::get('eletrodomestico/edit/{id}', 'EletrodomesticoController@getEletrodomestico');
 Route::post('eletrodomestico/insert', 'EletrodomesticoController@insert');
 Route::get('eletrodomestico/delete/{id}', 'EletrodomesticoController@delete');
+Route::post('eletrodomestico/ligaDesliga','EletrodomesticoController@ligaDesliga');
 
 Route::get('lampada/listar', 'LampadaController@getLampadas');
 Route::get('lampada/cadastro', 'LampadaController@cadLampada');
 Route::get('lampada/edit/{id}', 'LampadaController@getLampada');
 Route::post('lampada/insert', 'LampadaController@insert');
 Route::get('lampada/delete/{id}', 'LampadaController@delete');
+Route::post('lampada/ligaDesliga','LampadaController@ligaDesliga');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

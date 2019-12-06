@@ -17,9 +17,9 @@
     
     @foreach ( $lampadas as $lamp )
     <tr> 
-        <th scope="row"><button onClick="">
-          +
-        </button></th>
+        <th scope="row">
+            <input type="checkbox" value="{{ $lamp->idLampada }}"  data-toggle="toggle" data-offstyle="danger">
+          </th>
         <td>{{ $lamp->idLampada }}</td>
         <td>{{ $lamp->nomeLampada }}</td>
         <td>{{ $lamp->voltagemLampada }}</td>
@@ -30,4 +30,24 @@
   </tbody>
 </table>
 <div class="container">
+  <!-- BOOTSTRAP-->
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      $(".toggle").click(function(){
+        //if($(this).hasClass("off")){} verifica se esta desligado
+        var id = $(this).find("input").val();    
+        $.ajax({
+          url: "ligaDesliga",
+          method : "POST",
+          data : { id : id } ,
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        });
+      });
+    });
+     
+  </script>
 @endsection
