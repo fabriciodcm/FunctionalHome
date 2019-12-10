@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Comodo;
 use App\Lampada;
+use GuzzleHttp\Client;
 
 class LampadaController extends Controller
 {
@@ -69,7 +70,24 @@ class LampadaController extends Controller
     public function ligaDesliga(Request $request){
         $id = $request->input('id');
         //Pega a letra do banco e passa para o parâmetro
-        $parametro = "a";
+        $lampada = Lampada::find($id);
+
+        $parametro = $lampada->idArduino;
+        
+        $url_feed = "192.168.0.168?" . $parametro;
+	 
+        $client = new Client();
+        $res = $client->get($url_feed);
+
+        return Response($res->getBody(),$res->getStatusCode());
+    }
+
+    public function ligaDesligaOLD(Request $request){
+        $id = $request->input('id');
+        //Pega a letra do banco e passa para o parâmetro
+        $lampada = Lampada::find($id);
+
+        $parametro = $lampada->idArduino;
         
         $url_feed = "192.168.0.168?" . $parametro;
 	 
@@ -90,8 +108,9 @@ class LampadaController extends Controller
 
 	    //Capturando retorno do Arduino para redirecionar ao formulario
 	    $retorno_arduino = explode("\n", $result);
-	    $novo_parametro = "L=" . trim($retorno_arduino[0]) . "&M=" . trim($retorno_arduino[1]) . "&N=" . trim($retorno_arduino[2]);
-        
+	    //$novo_parametro = "L=" . trim($retorno_arduino[0]) . "&M=" . trim($retorno_arduino[1]) . "&N=" . trim($retorno_arduino[2]);
+        $novo_parametro = $retorno_arduino;
+
         //header("Location: formulario.php?" . $novo_parametro);
         //retorna a requisicao para o ajax trata o checkbox
         return Response($novo_parametro,200);

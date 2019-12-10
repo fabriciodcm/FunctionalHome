@@ -17,6 +17,12 @@
             </div>
         </div>
         <div class="form-group row">
+            <div class="col-sm-2 col-form-label" id="lblidArduino">Caracter Identificador:</div>
+            <div class="col-sm-2">
+                <input type="text" name="idArduino" maxlength="1" id="idArduino" class="form-control" @if(isset($eletro->idArduino)) value="{{$eletro->idArduino}}" @endif>
+            </div>
+        </div>
+        <div class="form-group row">
             <label class="col-sm-2 col-form-label">Comodo :</label>
             <div class="col-sm-4">
                 <select name="idComodo" class="form-control">
