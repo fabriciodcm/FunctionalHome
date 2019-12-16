@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function ligaDesliga(Request $request){
+        $id = $request->input('id');
+        $url_feed = "192.168.0.168?" . $id;
+        $client = new Client();
+        $res = $client->get($url_feed);
+        return Response($res->getBody(),$res->getStatusCode());
     }
 }

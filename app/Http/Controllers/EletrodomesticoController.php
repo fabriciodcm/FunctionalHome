@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Comodo;
 use App\Eletrodomestico;
+use GuzzleHttp\Client;
 
 class EletrodomesticoController extends Controller
 {
@@ -46,6 +47,10 @@ class EletrodomesticoController extends Controller
             $eletro = new Eletrodomestico();
         }
 
+        if(isset($request->idArduino)){
+            $eletro->idArduino = $request->input('idArduino');
+        }
+
         $eletro->idComodo = $request->input('idComodo');
         $eletro->nomeEletrodomestico = $request->input('nomeEletrodomestico');
         $eletro->voltagemEletrodomestico = $request->input('voltagemEletrodomestico');
@@ -62,6 +67,21 @@ class EletrodomesticoController extends Controller
     }
 
     public function ligaDesliga(Request $request){
+        $id = $request->input('id');
+        //Pega a letra do banco e passa para o parâmetro
+        $eletro = Eletrodomestico::find($id);
+
+        $parametro = $eletro->idArduino;
+        
+        $url_feed = "192.168.0.168?" . $parametro;
+	 
+        $client = new Client();
+        $res = $client->get($url_feed);
+
+        return Response($res->getBody(),$res->getStatusCode());
+    }
+
+    public function ligaDesligaOLD(Request $request){
         $id = $request->input('id');
         //Pega a letra do banco e passa para o parâmetro
         $parametro = "a";

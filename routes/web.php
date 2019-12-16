@@ -51,4 +51,5 @@ Route::get('lampada/delete/{id}', 'LampadaController@delete');
 Route::post('lampada/ligaDesliga','LampadaController@ligaDesliga');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('home/ligaDesliga','HomeController@ligaDesliga');
 
